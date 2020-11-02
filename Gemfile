@@ -24,6 +24,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
 
+gem 'rails_admin', '~> 2.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
