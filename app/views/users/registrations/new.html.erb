@@ -1,0 +1,49 @@
+<% provide(:title, 'Sign-up')%>
+
+<section class="sign_in_up">
+  <div class="auth_form_wrapper">
+    <div class="cover_deco_auth">
+    </div>
+    <div class="form_header">
+      <h1>SIGN-UP</h1>
+    </div>
+    <div class="auth_form">
+      <div class="form_container">
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "users/shared/error_messages", resource: resource %>
+
+              
+              <div class="field">
+                <%= f.label :email %>
+                <%= f.email_field :email, placeholder: 'Type your email here!' %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+                <%= f.password_field :password, placeholder: 'Type a strong password here!' %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, placeholder: 'Confirm your password!' %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Sign up" %>
+              </div>
+            <% end %>
+
+             <div class="links">
+              <p><%= render "users/shared/links" %></p>
+            </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</section>

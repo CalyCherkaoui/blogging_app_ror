@@ -1,2 +1,9 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+
+<% if current_user.nil? %>
+	<%= link_to new_user_session_path do %>Sign in<% end %>
+<% else %>
+	<%= link_to dashbord_index_path do %>Go to App<% end %> |
+	<%= link_to destroy_user_session_path, method: :delete do %>Log out<% end %>
+<% end %>

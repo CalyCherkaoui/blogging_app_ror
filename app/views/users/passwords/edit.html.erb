@@ -1,0 +1,44 @@
+<% provide(:title, 'Edit Password')%>
+
+<section class="sign_in_up">
+  <div class="auth_form_wrapper">
+    <div class="cover_deco_auth">
+    </div>
+    <div class="form_header">
+      <h1>Forgot your password?</h1>
+    </div>
+    <div class="auth_form">
+      <div class="form_container">
+
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "users/shared/error_messages", resource: resource %>
+              <%= f.hidden_field :reset_password_token %>
+
+              <div class="field">
+                <%= f.label :password, "New password" %><br />
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                <% end %>
+                <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password_confirmation, "Confirm new password" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Change my password" %>
+              </div>
+            <% end %>
+
+            
+            <div class="links">
+              <p><%= render "users/shared/links" %></p>
+            </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
