@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'cancancan'
+
 gem 'devise'
 
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
