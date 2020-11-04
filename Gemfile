@@ -26,6 +26,8 @@ gem 'cancancan'
 
 gem 'devise'
 
+gem "figaro"
+
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 
 # Use Active Storage variant
