@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_191023) do
+ActiveRecord::Schema.define(version: 2020_11_05_192448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 2020_11_05_191023) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "author_id", null: false
+    t.bigint "category_id", null: false
     t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -50,5 +52,6 @@ ActiveRecord::Schema.define(version: 2020_11_05_191023) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users", column: "author_id"
 end
