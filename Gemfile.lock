@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/flyerhzm/bullet.git
+  revision: fd1f9941711ad471c2b39b6e8a90572a4c02176f
+  specs:
+    bullet (6.1.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
+
+GIT
   remote: https://github.com/sferik/rails_admin.git
   revision: a2fd16b9f3684b434a3b28bbae5303cceb536e49
   specs:
@@ -256,6 +264,7 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
+    uniform_notifier (1.13.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.0.4)
@@ -284,6 +293,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
+  bullet!
   byebug
   cancancan
   capybara (>= 2.15)
