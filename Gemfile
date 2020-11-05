@@ -52,6 +52,8 @@ group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'hirb', '~> 0.7.3'
   gem 'rubocop'
+
+  gem 'bullet', git: 'https://github.com/flyerhzm/bullet.git'
 end
 
 group :test do

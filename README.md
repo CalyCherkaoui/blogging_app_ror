@@ -27,6 +27,14 @@ This project project was built following the specifications , and user cases giv
 - [Acknowledgments](#acknowledgments)
 - [License](#License)
 
+## Data Models
+
+<br>
+
+<img src="docs/diagram.png">
+
+<br><br>
+
 
 ## Author
 
