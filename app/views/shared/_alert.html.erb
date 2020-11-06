@@ -1,0 +1,13 @@
+<% if !flash.empty? %>
+    <section id="flash_container">
+        <% flash.each do |type, msg| %>
+            <div class="<%= flash_class_helper(type)%>" id="flash_panel">
+                <a href="#" data-dismiss="alert" class="close closesign">
+                    <i class="far fa-times-circle"></i>
+                </a>
+                <strong><%= flash_prefix_helper(type) %></strong>&nbsp;
+                <span><%= msg %></span>
+            </div>
+        <% end %>
+    </section>
+<% end %>
