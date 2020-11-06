@@ -270,3 +270,62 @@ footer {
     font-size: 0.9rem;
   }
 }
+
+/* Flash and alerts */
+
+#flash_container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#flash_panel {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 20000;
+
+  .closesign {
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    font-size: 1.4rem;
+    font-family: $font_bold;
+    color: $my_dark;
+    padding: 0.5rem;
+  }
+
+  strong {
+    font-family: $font_bold;
+  }
+
+  span {
+    font-family: $font_small;
+  }
+}
+
+.success {
+  color: $my_white;
+  background-color: $my_green;
+  border: 1px solid $my_green_dark;
+  border-radius: 5px;
+}
+
+.danger {
+  color: $my_white;
+  background-color: $red_danger;
+  border: 1px solid $tangerine_dark;
+  border-radius: 5px;
+}
+
+.warning {
+  color: $dark_blue;
+  background-color: $light_blue;
+  border: 1px solid $dark_blue;
+  border-radius: 5px;
+}
