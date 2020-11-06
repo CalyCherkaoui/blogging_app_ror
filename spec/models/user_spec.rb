@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before do 
+  before do
     @user = User.create(
-      email: 'test@foobar.com', 
+      email: 'test@foobar.com',
       password: 'password123',
       password_confirmation: 'password123',
       name: 'test'
@@ -25,5 +25,4 @@ RSpec.describe User, type: :model do
   describe 'Name validations' do
     it { should validate_presence_of(:name) }
   end
-
 end
