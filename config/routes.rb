@@ -6,10 +6,9 @@ Rails.application.routes.draw do
 
   get 'home/index'
   get 'dashboard/index'
+  get 'profile/index'
 
   resources :articles
-
-  resources :users, only: [:show]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
