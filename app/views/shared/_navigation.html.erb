@@ -1,0 +1,53 @@
+<header class="myheader">
+  <div class="my-brand-nav">
+      <%= link_to root_path, class: "logo" do %>
+        Photosynthèse<span> | blog</span>
+      <%end %>
+  </div>
+
+  <ul class="my-nav-list">
+        <li class="nav-list__item">
+          <%= link_to root_path, class: "nav-list__link active" do %>
+            Home
+          <% end %>
+        </li>
+
+        <!-- <%# <% @categories_important.each do |item| %> %>
+          <li class="nav-list__item">
+            <%# <%= link_to item.name, category_path(item), class: "nav-list__link" %> %>
+          </li>
+        <%# <% end %> %> -->
+
+        <li class="nav-list__item">
+          <%= link_to 'All Categories', categories_path, class: "nav-list__link" %>
+        </li>
+  </ul>
+
+  <ul class="my-nav-list">
+
+    <% if user_signed_in? %>
+
+      <li class="nav-list__item">
+        <%= link_to 'Profile', profile_index_path, class: "nav-list__link" %>
+      </li>
+
+      <% user_navigator_links.each do |link|%>
+
+          <li class="nav-list__item">
+            | <%= link %>
+          </li>
+
+      <% end %>
+      
+    <% else %>
+      <li class="nav-list__item">
+        <%= link_to 'Log-in', new_user_session_path, class: "nav-list__link" %> |
+      </li>
+
+      <li class="nav-list__item">
+        <%= link_to 'Sign-up', new_user_registration_path, class: "nav-list__link" %> 
+      </li>
+    <% end %>
+
+  </ul>
+</header>
