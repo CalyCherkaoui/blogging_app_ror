@@ -26,17 +26,18 @@
   <ul class="my-nav-list">
 
     <% if user_signed_in? %>
-      <li class="nav-list__item">
-        <%= link_to 'Profile', user_path(current_user), class: "nav-list__link" %> |
-      </li>
 
       <li class="nav-list__item">
-        <%= link_to 'Add-Article', new_article_path, class: "nav-list__link" %> |
+        <%= link_to 'Profile', profile_index_path, class: "nav-list__link" %>
       </li>
 
-      <li class="nav-list__item">
-        <%= link_to 'Log-out',  destroy_user_session_path, method: :delete, class: "nav-list__link" %>
-      </li>
+      <% user_navigator_links.each do |link|%>
+
+          <li class="nav-list__item">
+            | <%= link %>
+          </li>
+
+      <% end %>
       
     <% else %>
       <li class="nav-list__item">
