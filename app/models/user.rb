@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles, foreign_key: :author_id, class_name: 'Article'
+
+  validates :name, presence: true
 end
