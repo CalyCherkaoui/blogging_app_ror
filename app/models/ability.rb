@@ -1,28 +1,22 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user) # rubocop:disable Metrics/MethodLength
     # Define abilities for the passed in user here. For example:
 
     user ||= User.new # guest user (not logged in)
     can :read, Article, { published: true }
     can :read, Category
-    cannot [:edit, :destroy, :create], Category
-    cannot [:edit, :destroy, :create], Article
+    cannot %i[edit destroy create], Category
+    cannot %i[edit destroy create], Article
     cannot :manage, User
     cannot :manage, :dashboard
     cannot :access, :rails_admin
 
-    if user.user_role?
-      can :manage, Article, { author_id: user.id }
-      cannot :access, :rails_admin
-      cannot [:edit, :destroy, :create], Category
-    end
-
     if user.superadmin_role?
       can :manage, :all
       can :manage, :dashboard # allow access to dashboard
-      can :access, :rails_admin  # only allow admin users to access Rails Admin
+      can :access, :rails_admin # only allow admin users to access Rails Admin
     end
 
     if user.moderator_role?
@@ -32,6 +26,12 @@ class Ability
       can :manage, Category
       cannot :access, :rails_admin
     end
+
+    return unless user.user_role?
+
+    can :manage, Article, { author_id: user.id }
+    cannot :access, :rails_admin
+    cannot %i[edit destroy create], Category
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.

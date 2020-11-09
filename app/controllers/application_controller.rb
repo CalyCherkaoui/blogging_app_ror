@@ -7,9 +7,7 @@ class ApplicationController < ActionController::Base
     home_index_path
   end
 
-  rescue_from CanCan::AccessDenied do |exception|
-
+  rescue_from CanCan::AccessDenied do |_exception|
     redirect_to :root, alert: 'Access denied! Please login'
-
   end
 end
