@@ -33,4 +33,38 @@ module ApplicationHelper
       links << link_to('logout', destroy_user_session_path, method: :delete, class: 'nav-list__link')
     end
   end
+
+  def logged_in_author?(article)
+    if user_signed_in?
+        current_user.id == article.author.id || current_user.superadmin_role || current_user.moderator_role
+    else
+      false
+    end
+  end
+
+  def same_logged_in_user?(user)
+    user_signed_in? && (current_user.id == user.id)
+  end
+
+  # def authorized_editing_user?(user)
+
+  #   if user_signed_in?
+  #     current_user.id == user.id || current_user.superadmin_role || current_user.moderator_role
+  #   else
+  #     false
+  #   end
+
+  # end
+
+  # def authorize_editting
+  #   return if authorized_editing_user?(current_user)
+  #   flash[:error] = 'OooPs! Sorry you are not authorized to proceed! Please log-in.'
+  #   redirect_to login_path
+  # end
+
+  # def authorize_publishing
+  #   return if current_user.superadmin_role || current_user.moderator_role
+  #   flash[:error] = 'OooPs! Sorry you are not authorized to publish this article! Please log-in as moderator or admin.'
+  #   redirect_to login_path
+  # end
 end

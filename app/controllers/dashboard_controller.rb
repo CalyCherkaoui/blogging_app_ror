@@ -1,3 +1,6 @@
 class DashboardController < ApplicationController
-  def index; end
+
+  def index
+    authorize! :manage, :dashboard
+  end
 end
