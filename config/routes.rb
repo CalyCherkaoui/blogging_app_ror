@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   root to: "home#index"
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
   get 'profile/index'
 
   resources :articles
+  resources :categories
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
