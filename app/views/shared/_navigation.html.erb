@@ -12,11 +12,11 @@
           <% end %>
         </li>
 
-        <!-- <%# <% @categories_important.each do |item| %> %>
+        <% @categories_important.each do |item| %>
           <li class="nav-list__item">
-            <%# <%= link_to item.name, category_path(item), class: "nav-list__link" %> %>
+            <%= link_to item.name, category_path(item), class: "nav-list__link" %>
           </li>
-        <%# <% end %> %> -->
+        <% end %>
 
         <li class="nav-list__item">
           <%= link_to 'All Categories', categories_path, class: "nav-list__link" %>
