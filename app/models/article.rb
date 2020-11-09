@@ -13,4 +13,16 @@ class Article < ApplicationRecord
 
   validates :image, content_type: [ :png, :jpg, :jpeg ]
   validates :image, presence: true
+
+  def cover_image
+    image.variant(resize: '200x200')
+  end
+
+  def hero_image
+    image.variant(resize: '300x300')
+  end
+
+  def display_image
+    image.variant(resize: '1000x1000')
+  end
 end
