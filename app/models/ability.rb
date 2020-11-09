@@ -7,12 +7,16 @@ class Ability
     user ||= User.new # guest user (not logged in)
     can :read, Article, { published: true }
     can :read, Category
+    cannot [:edit, :destroy, :create], Category
+    cannot [:edit, :destroy, :create], Article
+    cannot :manage, User
     cannot :manage, :dashboard
     cannot :access, :rails_admin
 
     if user.user_role?
       can :manage, Article, { author_id: user.id }
       cannot :access, :rails_admin
+      cannot [:edit, :destroy, :create], Category
     end
 
     if user.superadmin_role?
