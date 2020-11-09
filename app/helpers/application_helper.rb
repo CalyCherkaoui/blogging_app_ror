@@ -33,4 +33,16 @@ module ApplicationHelper
       links << link_to('logout', destroy_user_session_path, method: :delete, class: 'nav-list__link')
     end
   end
+
+  def logged_in_author?(article)
+    if user_signed_in?
+      current_user.id == article.author.id || current_user.superadmin_role || current_user.moderator_role
+    else
+      false
+    end
+  end
+
+  def same_logged_in_user?(user)
+    user_signed_in? && (current_user.id == user.id)
+  end
 end

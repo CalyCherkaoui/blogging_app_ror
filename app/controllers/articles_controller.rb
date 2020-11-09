@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: [:show]
+  authorize_resource
 
   # GET /articles
   # GET /articles.json
@@ -14,23 +16,26 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   # GET /articles/1/edit
-  def edit; end
+  def edit
+    @categories = Category.all
+  end
 
   # POST /articles
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.author = current_user
 
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
       else
+        flash[:error] = @article.errors.full_messages.to_sentence
         format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,10 +46,9 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
       else
+        flash[:error] = @article.errors.full_messages.to_sentence
         format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +59,6 @@ class ArticlesController < ApplicationController
     @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -68,6 +71,6 @@ class ArticlesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def article_params
-    params.require(:article).permit(:title, :text, :draft, :published, :published_at)
+    params.require(:article).permit(:title, :text, :draft, :category_id, :image)
   end
 end

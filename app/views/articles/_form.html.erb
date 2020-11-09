@@ -1,42 +1,62 @@
-<%= form_with(model: article, local: true) do |form| %>
-  <% if article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+<section class="article_editor">
+  <%= form_with(model: article, local: true) do |form| %>
+    <div class="editor_article_content">
 
-      <ul>
-        <% article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <div class="editor_article_content_wrapper">
+          <p class="content_header">Article content:</p>
+          <%= form.text_area :text, class: "content_area", placeholder: "Add your content here!"%>
+        </div>
+
+    </div>
+    <div class="editor_article_header">
+      <h1><%= form_title %></h1>
+    </div>
+
+    <div class="editor_article_toolbox">
+      <div class="editor_article_toolbox_container">
+        
+        <% if article.image.attached? %>
+          <%= image_tag article.cover_image %>
         <% end %>
-      </ul>
+        
+        <div class="form_fields">
+
+              <div class="article_editor_field">
+                <%= form.label :title %>
+                <%= form.text_field :title %>
+              </div>
+
+              <div class="article_editor_field">
+                <%= form.label :category_id, 'category'%>
+                <br>
+                <%=
+                  form.select :category_id,
+                    options_from_collection_for_select(
+                      Category.priority_sorted, :id, :name
+                      ),
+                  prompt: true,
+                  :selected => 1
+                %>
+              </div>
+
+              <div class="article_editor_field">
+                      <%= form.label :draft %>
+                      <%= form.check_box :draft %>
+              </div>
+
+              <div class="article_editor_upload_btn">
+                <%= form.file_field :image, class: 'upload_btn_input' %>
+                <%= form.label :image, 'Click here to add an image to your article!', class: 'upload_btn_label'%>
+              </div>
+
+              <div class="article_editor_actions">
+                <%= form.submit %>
+              </div>
+        </div>
+
+      </div>
+
     </div>
   <% end %>
+</section>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
-  </div>
-
-  <div class="field">
-    <%= form.label :draft %>
-    <%= form.check_box :draft %>
-  </div>
-
-  <div class="field">
-    <%= form.label :published %>
-    <%= form.check_box :published %>
-  </div>
-
-  <div class="field">
-    <%= form.label :published_at %>
-    <%= form.datetime_select :published_at %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
