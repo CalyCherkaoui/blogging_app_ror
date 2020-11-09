@@ -14,6 +14,16 @@ class Article < ApplicationRecord
   validates :image, content_type: %i[png jpg jpeg]
   validates :image, presence: true
 
+  scope :heros, -> { order(created_at: :desc).includes(:author) }
+  # scope :ordred_by_votes, -> { order(votes_count: :desc).includes(:category) }
+  scope :with_attached_image, -> { includes(image_attachment: :blob) }
+  scope :with_image_category, -> { includes(image_attachment: :blob).includes(:category) }
+
+  # def votes_count
+  #   votes.count
+  # end
+
+
   def cover_image
     image.variant(resize: '200x200').processed
   end
