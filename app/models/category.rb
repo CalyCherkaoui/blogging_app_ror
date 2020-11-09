@@ -7,4 +7,6 @@ class Category < ApplicationRecord
     maximum: 20
   }
   validates :priority, presence: true, numericality: { only_integer: true, greater_than: 0 }
+
+  scope :priority_sorted, -> { order(priority: :asc) }
 end
