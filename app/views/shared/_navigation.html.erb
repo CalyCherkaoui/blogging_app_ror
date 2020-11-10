@@ -28,7 +28,7 @@
     <% if user_signed_in? %>
 
       <li class="nav-list__item">
-        <%= link_to 'Profile', profile_index_path, class: "nav-list__link" %>
+        <%= link_to 'Profile', user_path(current_user), class: "nav-list__link" %>
       </li>
 
       <% user_navigator_links.each do |link|%>

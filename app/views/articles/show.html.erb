@@ -1,29 +1,74 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Article')%>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<section class="article_show">
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+  <div class="article_show_wrapper">
 
-<p>
-  <strong>Draft:</strong>
-  <%= @article.draft %>
-</p>
+    <div class="article_show_image">
+        <% if @article.image.attached? %>
+          <p>
+          <%= image_tag(@article.display_image) %>
+          </p>
+        <% else %>
+          <%= image_tag(asset_path("default_article.jpg")) %>
+        <% end %>
+    </div>
 
-<p>
-  <strong>Published:</strong>
-  <%= @article.published %>
-</p>
+    <div class="article_show_category">
+      <%= link_to category_path(@article.category) do %>
+          <%= @article.category.name %>
+      <% end %>
+    </div>
 
-<p>
-  <strong>Published at:</strong>
-  <%= @article.published_at %>
-</p>
+    <div class="article_show_title">
+      <p><%= @article.title %></p>
+    </div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+    <div class="article_show_header">
+      <span>By</span>
+      <%= link_to user_path(@article.author), class: 'article_show_link' do %>
+          <%= @article.author.name %>
+      <% end %>
+
+      <% if @article.votes_count > 0 %>
+          <span>|</span>
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+          </svg>
+          <span class="votes_count">
+            <%= @article.votes_count %>
+          </span>
+      <% end %>
+
+    </div>
+
+    <div class="article_show_content">
+      <div class="article_show_content_wrapper">
+        <p>
+          <%= @article.text %>
+        </p>
+      </div>
+    </div>
+
+    <div class="article_show_foot voting_wrapper">
+          <%=  voting(@article) %>
+    </div>
+
+  </div>
+
+  <% if logged_in_author?(@article) %>
+
+  <div class="article_show_author_tool">
+    <p>Hello, <%= current_user.name %>!</p>
+    <p>You did a geat work with this Article.</p>
+    <p>Thank you for your contribution to the Photosythèse blog.</p>
+    <div class="toolbox">
+      <%= link_to 'Edit this article', edit_article_path(@article) %>
+      <%= link_to 'Add new article', new_article_path %>
+    </div>
+
+  </div>
+    
+  <% end %>
+
+</section>
