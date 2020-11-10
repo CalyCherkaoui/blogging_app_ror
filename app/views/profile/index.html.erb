@@ -58,12 +58,7 @@
                                   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                                 </svg>
                                 <%= article.votes_count %>
-
-                                <%= link_to 'like', article_vote_path(article), class: 'like', method: :post%>
-
-                                |
-
-                                <%= link_to 'Dislike', article_vote_path(article), class: 'dislike', method: :delete %>
+                                <%=  voting(article) %>
                               </div>
                             </div>
                           </p>
@@ -117,12 +112,8 @@
                           <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                         </svg>
                         <%= article.votes_count %>
+                        <%=  voting(article) %>
 
-                        <%= link_to 'like', article_vote_path(article), class: 'like', method: :post%>
-
-                        |
-
-                        <%= link_to 'Dislike', article_vote_path(article), class: 'dislike', method: :delete %>
                       </div>
                     </div>
                   </p>
