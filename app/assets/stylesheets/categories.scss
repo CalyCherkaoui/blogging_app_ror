@@ -1,3 +1,118 @@
-// Place all the styles related to the Categories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'settings.scss';
+
+// Categories Index
+
+.all_categories {
+  background-color: white;
+  background-image: url(/assets/patern.png);
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category_caption {
+  height: 300px;
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "lefty righty";
+
+  .img0,
+  .img1,
+  .img4,
+  .img5 {
+    grid-area: lefty;
+  }
+
+  .content0,
+  .content1,
+  .content4,
+  .content5 {
+    grid-area: righty;
+  }
+
+  .img2,
+  .img3,
+  .img6,
+  .img7 {
+    grid-area: righty;
+  }
+
+  .content2,
+  .content3,
+  .content6,
+  .content7 {
+    grid-area: lefty;
+  }
+}
+
+.category_img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    -o-object-fit: cover;
+    -o-object-position: center;
+    overflow: hidden;
+  }
+}
+
+.category_name {
+  height: 2.3rem;
+  font-size: 1.1rem;
+  color: $color_category_name;
+  font-family: $font_bold;
+  font-weight: 700;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    padding-bottom: 0.5rem;
+    border-bottom: $color_category_line 2px solid;
+
+    &:hover {
+      border-bottom: none;
+      animation: fading 1s ease-in-out 0s;
+    }
+  }
+}
+
+.category_hero_readmore {
+  font-size: 1rem;
+  font-family: $font_bold;
+  font-weight: 600;
+  color: $tangerine;
+  text-decoration: none;
+
+  &:hover {
+    color: $color_category_line;
+  }
+}
+
+.category_content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category_hero_title {
+  color: $color_category_title;
+  font-family: $font_bold;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.6rem;
+}
+
+.category_hero_content {
+  color: $color_category_txt;
+  font-size: 0.8rem;
+  font-family: $font_small;
+}

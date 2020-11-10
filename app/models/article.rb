@@ -19,9 +19,10 @@ class Article < ApplicationRecord
   scope :with_attached_image, -> { includes(image_attachment: :blob) }
   scope :with_image_category, -> { includes(image_attachment: :blob).includes(:category) }
 
-  # def votes_count
-  #   votes.count
-  # end
+  def votes_count
+    # votes.count
+    5
+  end
 
 
   def cover_image

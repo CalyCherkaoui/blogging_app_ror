@@ -1,29 +1,50 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Categories')%>
 
-<h1>Categories</h1>
+<section class="all_categories">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Priority</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% @categories.each_with_index do |category, index| %>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.priority %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="category_caption">
 
-<br>
+      <% if category.latest_article.present? %>
 
-<%= link_to 'New Category', new_category_path %>
+        <div class="category_img img<%= index %>">
+      
+          <%= image_tag(category.latest_article.image) %>
+
+        </div>
+
+        <div class="category_content content<%= index %>">
+          <p class="category_name">
+            <%= link_to category_path(category) do %>
+                <%= category.name %>
+            <%end%>
+          </p>
+          <p class="category_hero_title"><%= category.latest_article.title %></p>
+          <p class="category_hero_content">
+              <%= truncate(category.latest_article.text, :omission => "...", :length => 300) %>
+          </p>
+
+            <%= link_to 'Read more..', article_path(category.latest_article), class: 'category_hero_readmore' %>
+
+        </div>
+
+      <% else %>
+        <div class="category_img img<%= index %>">
+            <%= image_tag(asset_path("default.jpg")) %>
+        </div>
+        <div class="category_content content<%= index %>">
+          <p class="category_name">
+            <%= link_to category_path(category) do %>
+                <%= category.name %>
+            <%end%>
+          </p>
+          <p class="category_hero_title">More articles soon in this category ...</p>
+        </div>
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</section>
