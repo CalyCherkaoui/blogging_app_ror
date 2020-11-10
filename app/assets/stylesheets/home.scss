@@ -1,3 +1,174 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'settings.scss';
+
+.home_articles {
+  background-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  height: calc(100vh - var(--nav_height_desk));
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: [row1-start] 70% [row1-end row2-start] 30% [row2-end];
+  grid-template-areas:
+    "hero hero hero latest"
+    "wrapper wrapper wrapper wrapper ";
+}
+
+.article {
+  width: 25%;
+  height: 100%;
+  position: relative;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    -o-object-fit: cover;
+    -o-object-position: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    opacity: 0.85;
+  }
+
+  .category {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding-left: 0.5rem;
+    padding-top: 1rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: $font_bold;
+    font-weight: 650;
+    color: $color_home_category_txt;
+    border-bottom: 2px solid $color_home_category_line;
+
+    &:hover {
+      border-bottom: none;
+      color: $color_logo_second;
+      animation: fading 1s ease-out 0s;
+    }
+  }
+
+  .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    padding: 0.5rem;
+    padding-bottom: 2rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: $font_bold;
+    font-weight: 600;
+    color: $color_home_title;
+
+    &:hover {
+      color: $color_logo_second;
+      animation: fading 1s ease-out 0s;
+    }
+  }
+}
+
+.hero_article {
+  grid-area: hero;
+  overflow: hidden;
+  position: relative;
+  background-color: $color_bg_main;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  z-index: 1;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    -o-object-fit: cover;
+    -o-object-position: center;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    opacity: 0.75;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      color: $color_navigation_active;
+    }
+  }
+
+  .text {
+    padding: 2rem;
+
+    .title {
+      color: $color_home_hero_title;
+      font-family: $font_bold;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .content {
+      color: $color_home_hero_txt;
+      font-family: $font_small;
+      font-size: 1rem;
+    }
+  }
+}
+
+.latest_article {
+  grid-area: latest;
+  overflow: hidden;
+  position: relative;
+  background-color: $color_bg_main;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    -o-object-fit: cover;
+    -o-object-position: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.85;
+  }
+
+  .text {
+    text-decoration: none;
+    text-align: center;
+    padding: 2rem;
+    z-index: 10;
+  }
+
+  a:hover {
+    cursor: pointer;
+    color: $color_navigation_active;
+  }
+
+  p {
+    color: $color_home_hero_txt;
+    font-family: $font_bold;
+    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+}
+
+.articles_wrapper {
+  grid-area: wrapper;
+  display: flex;
+  flex-direction: row;
+}
