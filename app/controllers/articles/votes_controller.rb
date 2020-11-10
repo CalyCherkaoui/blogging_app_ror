@@ -3,7 +3,7 @@ class Articles::VotesController < ApplicationController
   before_action :set_article
 
   def create
-    @article.votes.where(user_id: current_user.id).first_or_create
+    current_user.like_article(@article)
 
     respond_to do |format|
       format.html { redirect_to @article }
@@ -11,7 +11,7 @@ class Articles::VotesController < ApplicationController
   end
 
   def destroy
-    @article.votes.where(user_id: current_user.id).destroy_all
+    current_user.dislike_article(@article)
 
     respond_to do |format|
       format.html { redirect_to @article }
@@ -20,7 +20,7 @@ class Articles::VotesController < ApplicationController
 
   private
 
-    def set_article
-      @article = Article.find(params[:article_id])
-    end
+  def set_article
+    @article = Article.find(params[:article_id])
+  end
 end
