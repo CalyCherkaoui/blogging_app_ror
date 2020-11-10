@@ -1,3 +1,138 @@
 <% provide(:title, 'Profile')%>
 
-<p>Hey! I'm <%= @user.name %>.</p>
+
+<section class="user_profile">
+
+  <div class="user_profile_header">
+    <div class="user_profile_name">
+      <p>Hey! I'm <%= @user.name %>.</p>
+      <p>Welcome to my profile page.</p>
+      <p>Find here all my articles written by me, and also my favorite ones.</p>
+    </div>
+
+    <% if same_logged_in_user?(@user) %>
+      <div class="user_profile_tool">
+        <%= link_to 'Add new article', new_article_path %>
+      </div>
+    <% end %>
+  </div>
+
+    <% if same_logged_in_user?(@user) %>
+
+        <div class="user_profile_articles">
+              <p class="user_profile_gallery_header">Articles I liked</p>
+              <div class="user_profile_articles_gallery">
+
+                  <% if @liked_articles.empty? %>
+
+                      <div class="category_last_article_wrapper">
+                          <p class= "users_profile_default_msg">
+                              You didn't like any article yet!
+                          </p>
+                      </div>
+
+                  <% else %>
+
+                    <% @liked_articles.each_with_index do |article, index| %>
+
+                      <div class="category_last_article_wrapper">
+                        <div class="category_last_article_img img<%= index %>">
+                          <%= image_tag(article.image) %>
+                        </div>
+                        <div class="category_last_article_content content<%= index %>">
+                          <p class="category_last_article_name">
+                            <%= link_to category_path(article.category) do %>
+                                <%= article.category.name %>
+                            <%end%>
+                            <p class="category_last_article_hero_title"><%= article.title %></p>
+                            <p class="category_last_article_hero_content">
+                                <%= truncate(article.text, :omission => "...", :length => 200) %>
+                            </p>
+                            <div class="caption_foot">
+
+                                <%= link_to 'Read more..', article_path(article), class: 'readmore' %>
+
+                              <div class="category_last_article_votes">
+                                
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                                </svg>
+                                <%= article.votes_count %>
+
+                                <%= link_to 'like', article_vote_path(article), class: 'like', method: :post%>
+
+                                |
+
+                                <%= link_to 'Dislike', article_vote_path(article), class: 'dislike', method: :delete %>
+                              </div>
+                            </div>
+                          </p>
+                        </div>
+                      </div>
+
+                    <% end %>
+                  <% end %>
+
+              </div>
+        </div>
+
+    <%end%>
+
+    <div class="user_profile_articles">
+      <p class="user_profile_gallery_header">Articles I Wrote</p>
+      <div class="user_profile_articles_gallery">
+
+          <% if @written_articles.empty? %>
+
+              <div class="category_last_article_wrapper">
+                  <p class= "users_profile_default_msg">
+                      I didn't wrote any article yet!
+                  </p>
+              </div>
+
+          <% else %>
+
+            <% @written_articles.each_with_index do |article, index| %>
+
+              <div class="category_last_article_wrapper">
+                <div class="category_last_article_img img<%= index %>">
+                  <%= image_tag(article.image) %>
+                </div>
+                <div class="category_last_article_content content<%= index %>">
+                  <p class="category_last_article_name">
+                    <%= link_to category_path(article.category) do %>
+                        <%= article.category.name %>
+                    <%end%>
+                    <p class="category_last_article_hero_title"><%= article.title %></p>
+                    <p class="category_last_article_hero_content">
+                        <%= truncate(article.text, :omission => "...", :length => 200) %>
+                    </p>
+                    <div class="caption_foot">
+
+                        <%= link_to 'Read more..', article_path(article), class: 'readmore' %>
+
+                      <div class="category_last_article_votes">
+                        
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                        <%= article.votes_count %>
+
+                        <%= link_to 'like', article_vote_path(article), class: 'like', method: :post%>
+
+                        |
+
+                        <%= link_to 'Dislike', article_vote_path(article), class: 'dislike', method: :delete %>
+                      </div>
+                    </div>
+                  </p>
+                </div>
+              </div>
+
+            <% end %>
+          <% end %>
+
+      </div>
+    </div>
+
+</section>
