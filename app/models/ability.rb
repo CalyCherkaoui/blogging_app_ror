@@ -5,7 +5,8 @@ class Ability
     # Define abilities for the passed in user here. For example:
 
     user ||= User.new # guest user (not logged in)
-    can :read, Article, { published: true }
+    # can :read, Article, { published: true }
+    can :read, Article
     can :read, Category
     cannot %i[edit destroy create], Category
     cannot %i[edit destroy create], Article
