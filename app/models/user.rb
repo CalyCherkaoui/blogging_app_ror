@@ -21,5 +21,4 @@ class User < ApplicationRecord
   def dislike_article(article)
     liked_articles.delete(article)
   end
-
 end

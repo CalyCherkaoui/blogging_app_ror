@@ -15,5 +15,4 @@ class Vote < ApplicationRecord
       Article.last
     end
   end
-
 end

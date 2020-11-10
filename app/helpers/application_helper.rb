@@ -48,10 +48,9 @@ module ApplicationHelper
 
   def voting(article)
     if user_signed_in? && current_user.likes?(article)
-      link_to('Dislike', article_vote_path(article), class: 'dislike', method: :delete )
+      link_to('Dislike', article_vote_path(article), class: 'dislike', method: :delete)
     else
-      link_to( 'like', article_vote_path(article), class: 'like', method: :post )
+      link_to('like', article_vote_path(article), class: 'like', method: :post)
     end
   end
-
 end
