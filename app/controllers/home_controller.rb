@@ -3,8 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @article_latest = Article.heros.first
-    # @hero_article = Vote.most_voted_article
-    @hero_article = Article.last
+    @hero_article = Vote.most_voted_article
     @important_categories = Category.important_with_articles
   end
 end
