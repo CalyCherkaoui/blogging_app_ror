@@ -45,4 +45,12 @@ module ApplicationHelper
   def same_logged_in_user?(user)
     user_signed_in? && (current_user.id == user.id)
   end
+
+  def voting(article)
+    if user_signed_in? && current_user.likes?(article)
+      link_to('Dislike', article_vote_path(article), class: 'dislike', method: :delete)
+    else
+      link_to('like', article_vote_path(article), class: 'like', method: :post)
+    end
+  end
 end
