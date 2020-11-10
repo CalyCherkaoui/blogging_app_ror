@@ -1,0 +1,93 @@
+@import 'settings.scss';
+
+/* Author-user profile */
+
+.user_profile {
+  background-color: $color_bg_main;
+  min-height: calc(100vh - var(--nav_height_desk) - var(--footer_height_desktop));
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user_profile_header {
+  background-color: $my_white;
+  background-image: url(/assets/patern.png);
+  padding: 4rem;
+}
+
+.user_profile_name {
+  margin-bottom: 1rem;
+
+  p {
+    font-size: 1.3rem;
+    font-family: $font_bold;
+    font-weight: 600;
+    color: $color_logo_main;
+    line-height: 2rem;
+  }
+}
+
+.user_profile_tool {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  a {
+    text-decoration: none;
+    padding: 0.6rem;
+    background-color: $light-blue;
+    font-family: $font_bold;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $dark_blue;
+    border: 2px solid $classic-blue;
+    border-radius: 5px;
+    text-align: center;
+
+    &:hover {
+      color: $my_white;
+      background-color: $classic-blue;
+    }
+  }
+}
+
+.user_profile_articles {
+  margin-top: 1.5rem;
+}
+
+.users_profile_default_msg {
+  margin-left: auto;
+  margin-top: 2rem;
+  margin-right: auto;
+  padding: 1rem;
+  color: $color_logo_main;
+  font-family: $font_bold;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.user_profile_gallery_header {
+  margin: 0;
+  background-color: transparent;
+  font-size: 1rem;
+  font-family: $font_bold;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: $my_white;
+  font-weight: 800;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid $color_logo_second;
+}
+
+.user_profile_articles_gallery {
+  background-color: $my_white;
+  background-image: url(/assets/patern.png);
+  min-height: calc(100vh - var(--nav_height_desk) - var(--footer_height_desktop));
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+}

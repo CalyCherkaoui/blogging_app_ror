@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[show index]
   authorize_resource
 
   # GET /categories
@@ -10,7 +11,9 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   # GET /categories/1.json
-  def show; end
+  def show
+    @articles = @category.articles.with_attached_image
+  end
 
   # GET /categories/new
   def new

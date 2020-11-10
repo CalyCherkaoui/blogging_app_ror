@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
-  def index; end
+  def index
+    @article_latest = Article.heros.first
+    # @hero_article = Vote.most_voted_article
+    @hero_article = Article.last
+    @important_categories = Category.important_with_articles
+  end
 end
