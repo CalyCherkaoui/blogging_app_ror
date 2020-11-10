@@ -24,7 +24,6 @@ class Article < ApplicationRecord
     5
   end
 
-
   def cover_image
     image.variant(resize: '200x200').processed
   end

@@ -16,5 +16,4 @@ class ApplicationController < ActionController::Base
   def set_important_categories
     @categories_important = Category.importants
   end
-
 end
