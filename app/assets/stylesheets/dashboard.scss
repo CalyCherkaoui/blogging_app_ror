@@ -1,3 +1,24 @@
-// Place all the styles related to the dashbord controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'settings.scss';
+
+/* Author-user profile */
+
+.dashboard {
+  background-color: $color_bg_main;
+  min-height: calc(100vh - var(--nav_height_desk) - var(--footer_height_desktop));
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: auto;
+  grid-template-areas: "navigator displayer";
+}
+
+.dashboard_navigator {
+  grid-area: navigator;
+}
+
+.dashboard_displayer {
+  grid-area: displayer;
+}
