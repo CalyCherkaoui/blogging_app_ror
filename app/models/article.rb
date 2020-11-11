@@ -20,6 +20,8 @@ class Article < ApplicationRecord
   scope :with_attached_image, -> { includes(image_attachment: :blob) }
   scope :with_image_category, -> { includes(image_attachment: :blob).includes(:category) }
 
+  scope :released_with_attachements, -> { heros.includes(image_attachment: :blob).includes(:category)}
+
   def votes_count
     votes.count
   end
@@ -29,7 +31,7 @@ class Article < ApplicationRecord
   end
 
   def hero_image
-    image.variant(resize: '300x300').processed
+    image.variant(resize: '400x400').processed
   end
 
   def display_image
