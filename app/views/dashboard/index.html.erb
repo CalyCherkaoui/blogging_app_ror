@@ -3,9 +3,125 @@
 <section class="dashboard">
   <div class="dashboard_navigator">
 
+      <div class="dashbord_header">
+        <p>Hello, <%= current_user.name %>!</p>
+        <p>Here is your Dashboard!</p>
+      </div>
+
+      <div class="dashboard_tool_box">
+        <%= link_to 'Add new Category', new_category_path , class: 'tool_box_link' %>
+        <%= link_to 'Add new Article', new_article_path, class: 'tool_box_link' %>
+      </div>
+      <div class="dashboard_tool_box">
+        <%= link_to 'List of Categories', categories_path, class: 'tool_box_link' %>
+        <%= link_to 'List of Articles', articles_path, class: 'tool_box_link' %>
+      </div>
+
+      <div class="dashboard_tool_box">
+        <div class="dashboard_stats_header">
+          Statistics:
+        </div>
+         <p class="dashboard_stats_data"><span><%= @articles_num %></span> Articles created</p>
+         <p class="dashboard_stats_data"><span><%= @likes %></span> Likes</p>
+         <p class="dashboard_stats_data"><span><%= @categories_num %></span> Categories</p>
+      </div>
+
   </div>
 
   <div class="dashboard_displayer">
+
+    <div class="dashboard_displayer_heros">
+
+      <table class="dashboard_displayer_heros_table">
+        <tr>
+          <td class="dashboard_displayer_heros_type">The Latest Added Article: </td>
+          <td class="dashboard_displayer_heros_link">
+              <%= link_to article_path(@latest_added_article) do %>
+                <%= @latest_added_article.title %>
+              <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td class="dashboard_displayer_heros_type">The Most Voted Article: </td>
+          <td class="dashboard_displayer_heros_link">
+              <%= link_to article_path(@most_voted_article) do %>
+                <%= @most_voted_article.title %>
+              <% end %>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+
+
+    <div class="dashbord_displayer_collection">
+
+      <div class="dashbord_displayer_collection_header">
+        <p>Articles to review:</p>
+      </div>
+
+
+      <div class="dashbord_displayer_collection_articles">
+
+        <% @articles_released.each do |article| %>
+
+              <div class="dashbord_displayer_article_card">
+                  <div class="card_image">
+                      <%= image_tag(article.hero_image) %>
+                  </div>
+                  <div class="card_tools">
+                        <%= link_to 'Edit', edit_article_path(article), class: 'tool_box_link' %>
+                        <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tool_box_link' %>
+                  </div>
+                  <div class="card_info">
+                      <p class="card_info_title category_last_article_hero_title">
+                          <%= link_to article_path(article) do %>
+                            <%= article.title %>
+                          <% end %>
+                      </p>
+                      <p class="card_info_text category_last_article_hero_content">
+                        <%= truncate(article.text, :omission => "...", :length => 250) %>
+                      </p>
+
+                      <table class= "card_info_table">
+                        <tr>
+                          <td class= "card_table_title">Votes:</td>
+                          <td>
+                              <span><%= article.votes_count %></span>
+                              <svg width="0.9em" height="0.9em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                              </svg>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class= "card_table_title">Author:</td>
+                          <td>
+                                <%= link_to user_path(article.author), class: 'readmore' do %>
+                                  <%= article.author.name%>
+                                <% end %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class= "card_table_title">Category:</td>
+                          <td>
+                                <%= link_to category_path(article.category), class: 'readmore' do %>
+                                  <%= article.category.name%>
+                                <% end %>
+                          </td>
+                        </tr>
+                      </table>
+                  </div>
+              </div>
+
+        <% end %>
+
+
+
+      </div>
+
+    </div>
+
 
   </div>
 </section>
