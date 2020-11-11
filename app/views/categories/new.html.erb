@@ -1,5 +1,3 @@
-<h1>New Category</h1>
+<% provide(:title, 'New Category')%>
 
-<%= render 'form', category: @category %>
-
-<%= link_to 'Back', categories_path %>
+<%= render 'form', category: @category, form_title: 'Adding New Category:' %>
