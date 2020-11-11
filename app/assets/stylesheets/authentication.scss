@@ -2,8 +2,6 @@
 
 .sign_in_up {
   height: calc(100vh - var(--nav_height_desk) - var(--footer_height_desktop));
-  background-color: white;
-  background-image: url(/assets/patern.png);
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -16,7 +14,7 @@
   min-width: 95%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: [row1-start] 1fr [row1-end row2-start] 4fr [row2-end];
+  grid-template-rows: [row1-start] 10% [row1-end row2-start] 90% [row2-end];
   grid-template-areas:
     "cover form_header"
     "cover form";
@@ -36,6 +34,7 @@
 .form_header {
   grid-area: form_header;
   background-color: $my_white;
+  background-image: url(/assets/patern.png);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,6 +48,7 @@
 
 .auth_form {
   background-color: $my_white;
+  background-image: url(/assets/patern.png);
   grid-area: form;
   display: flex;
   align-items: center;
@@ -87,7 +87,8 @@
     input {
       height: 1.5rem;
       width: 100%;
-      background-color: $my_light_grey;
+      padding-left: 0.5rem;
+      background-color: $my_white;
       border: none;
       border-left: 1px solid $dark_blue;
     }

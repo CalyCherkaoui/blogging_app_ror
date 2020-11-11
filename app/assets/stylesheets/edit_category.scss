@@ -1,0 +1,35 @@
+@import 'settings.scss';
+
+.category_editor_table_displayer {
+  margin: 2rem auto;
+  width: 95%;
+
+  td {
+    border-bottom: 1px solid $light-blue;
+    padding: 0.5rem;
+    text-align: center;
+    font-family: $font_small;
+
+    a {
+      text-decoration: none;
+      color: $dark_blue;
+      font-weight: 700;
+
+      &:hover {
+        color: $tangerine;
+      }
+    }
+  }
+
+  .numeric {
+    color: $tangerine;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  th {
+    font-family: $font_logo_main;
+    color: $classic-blue;
+    border-bottom: 1px solid $light-blue;
+  }
+}

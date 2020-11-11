@@ -3,7 +3,7 @@
 // category show
 
 .category_section {
-  background-color: white;
+  background-color: $my_white;
   background-image: url(/assets/patern.png);
   min-height: calc(100vh - var(--nav_height_desk) - var(--footer_height_desktop));
   display: flex;

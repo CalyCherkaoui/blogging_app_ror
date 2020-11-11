@@ -14,7 +14,7 @@
       </div>
       <div class="dashboard_tool_box">
         <%= link_to 'List of Categories', categories_path, class: 'tool_box_link' %>
-        <%= link_to 'List of Articles', articles_path, class: 'tool_box_link' %>
+        <%= link_to 'Edit Categories', new_category_path, class: 'tool_box_link' %>
       </div>
 
       <div class="dashboard_tool_box">
@@ -37,7 +37,7 @@
           <td class="dashboard_displayer_heros_type">The Latest Added Article: </td>
           <td class="dashboard_displayer_heros_link">
               <%= link_to article_path(@latest_added_article) do %>
-                <%= @latest_added_article.title %>
+                <%= @latest_added_article.title %> ...
               <% end %>
           </td>
         </tr>
@@ -45,7 +45,16 @@
           <td class="dashboard_displayer_heros_type">The Most Voted Article: </td>
           <td class="dashboard_displayer_heros_link">
               <%= link_to article_path(@most_voted_article) do %>
-                <%= @most_voted_article.title %>
+                <%= @most_voted_article.title %> ...
+              <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="dashboard_displayer_heros_type">The Latest Added Category: </td>
+          <td class="dashboard_displayer_heros_link">
+              <%= link_to category_path(@latest_added_category) do %>
+                <%= @latest_added_category.name %>
               <% end %>
           </td>
         </tr>

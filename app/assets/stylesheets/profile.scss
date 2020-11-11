@@ -8,12 +8,14 @@
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
 }
 
 .user_profile_header {
-  background-color: $my_white;
-  background-image: url(/assets/patern.png);
-  padding: 4rem;
+  background-color: transparent;
+  padding: 3.5rem;
+  border: 2px solid $color_logo_second;
 }
 
 .user_profile_name {
@@ -23,7 +25,7 @@
     font-size: 1.3rem;
     font-family: $font_bold;
     font-weight: 600;
-    color: $color_logo_main;
+    color: $color_logo_second;
     line-height: 2rem;
   }
 }
@@ -36,13 +38,11 @@
   a {
     text-decoration: none;
     padding: 0.6rem;
-    background-color: $light-blue;
     font-family: $font_bold;
     font-size: 1rem;
     font-weight: 600;
-    color: $dark_blue;
-    border: 2px solid $classic-blue;
-    border-radius: 5px;
+    color: $light-blue;
+    border: 2px solid $light-blue;
     text-align: center;
 
     &:hover {

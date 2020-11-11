@@ -121,15 +121,18 @@
 
 .article_show_author_tool {
   margin-top: 1.5rem;
-  background-color: $my_white;
-  background-image: url(/assets/patern.png);
+  // background-color: $my_white;
+  // background-image: url(/assets/patern.png);
+  background: transparent;
+  border: 2px solid $color_logo_second;
   width: 900px;
   padding: 3rem;
 
   p {
     font-family: $font_bold;
     font-size: 1.2rem;
-    color: $dark_blue;
+    // color: $dark_blue;
+    color: $color_logo_second;
   }
 
   .toolbox {
@@ -144,12 +147,11 @@
     a {
       text-decoration: none;
       padding: 0.6rem;
-      background-color: $light-blue;
       font-family: $font_bold;
       font-size: 1rem;
       font-weight: 600;
-      color: $dark_blue;
-      border: 2px solid $classic-blue;
+      color: $light-blue;
+      border: 2px solid $light-blue;
       border-radius: 5px;
       text-align: center;
 

@@ -1,10 +1,11 @@
 @import 'settings.scss';
 
 .home_articles {
+  max-width: 1300px;
   background-color: black;
   margin-left: auto;
   margin-right: auto;
-  height: calc(100vh - var(--nav_height_desk));
+  height: calc(100vh - var(--nav_height_desk) - var(--footer_height_desktop));
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: [row1-start] 70% [row1-end row2-start] 30% [row2-end];
