@@ -23,7 +23,7 @@ class Category < ApplicationRecord
 
   def votes_count
     count = 0
-    self.articles.each do |art|
+    articles.each do |art|
       count += art.votes_count
     end
     count

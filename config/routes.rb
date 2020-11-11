@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'dashboard/index'
 
-  resources :articles do
+  resources :articles, :except => [:index] do
     resource :vote, module: :articles, only: [:create, :destroy]
   end
 
