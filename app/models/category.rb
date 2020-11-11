@@ -16,4 +16,16 @@ class Category < ApplicationRecord
   def latest_article
     articles.heros.first
   end
+
+  def articles_count
+    articles.count
+  end
+
+  def votes_count
+    count = 0
+    articles.each do |art|
+      count += art.votes_count
+    end
+    count
+  end
 end

@@ -1,9 +1,7 @@
 @import 'settings.scss';
 
 .article_editor {
-  height: calc(100vh - var(--nav_height_desk) - var(--footer_height_desktop));
-  background-color: $my_white;
-  background-image: url(/assets/patern.png);
+  margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -11,11 +9,11 @@
   justify-content: center;
 
   form {
-    height: 97%;
+    min-height: calc(100vh - var(--nav_height_desk) - var(--footer_height_desktop));
     width: 97%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: [row1-start] 1fr [row1-end row2-start] 4fr [row2-end];
+    grid-template-rows: [row1-start] 10% [row1-end row2-start] 90% [row2-end];
     grid-template-areas:
       "cover form_header"
       "cover form";
@@ -25,14 +23,16 @@
 }
 
 .editor_article_content {
+  height: auto;
   grid-area: cover;
   background-color: $my_white;
+  background-image: url(/assets/patern.png);
   overflow: hidden;
   padding: 1.5rem;
 }
 
 .editor_article_content_wrapper {
-  height: 98%;
+  height: auto;
 
   .content_header {
     font-size: 0.9rem;
@@ -43,11 +43,11 @@
 
   .content_area {
     border: none;
-    border-left: 2px solid $dark_blue;
-    background-color: $my_light_grey;
+    border: 2px dashed $dark_blue;
+    background-color: $my_white;
     padding: 1rem;
     width: 100%;
-    height: 93%;
+    min-height: 35rem;
     margin-top: 1rem;
     font-size: 1rem;
   }
@@ -56,19 +56,21 @@
 .editor_article_header {
   grid-area: form_header;
   background-color: $my_white;
+  background-image: url(/assets/patern.png);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: $font_bold;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: $color_logo_second;
   }
 }
 
 .editor_article_toolbox {
   background-color: $my_white;
+  background-image: url(/assets/patern.png);
   grid-area: form;
   display: flex;
   align-items: center;
@@ -76,7 +78,7 @@
 }
 
 .editor_article_toolbox_container {
-  height: 85%;
+  height: 100%;
   width: 85%;
   display: flex;
   padding-left: 0.5rem;
@@ -103,7 +105,7 @@
   input {
     height: 1.5rem;
     width: 100%;
-    background-color: $my_light_grey;
+    background-color: $my_white;
     border: none;
     border-left: 1px solid $dark_blue;
   }
@@ -122,61 +124,12 @@
   select {
     height: 1.5rem;
     width: 100%;
-    background-color: $my_light_grey;
+    background-color: $my_white;
     border: none;
     border-left: 1px solid $tangerine;
     color: $tangerine;
     font-size: 1rem;
     font-family: $font_bold;
-  }
-}
-
-.field_with_errors {
-  height: 90%;
-
-  + br {
-    display: none;
-  }
-
-  .content_area {
-    border: none;
-    border-left: 2px solid red;
-    background-color: $my_light_grey;
-    padding: 1rem;
-    width: 100%;
-    height: 95%;
-    margin-top: 1rem;
-    font-size: 1rem;
-  }
-
-  .upload_btn_input {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-  }
-
-  .upload_btn_label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 2rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    border: 1px solid $tangerine;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-family: $font_small;
-    font-weight: 600;
-    color: $my_white;
-    background-color: $color_category_line;
-    cursor: pointer;
-  }
-
-  input,
-  select {
-    border: 1px solid red;
   }
 }
 
