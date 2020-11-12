@@ -66,6 +66,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
+  gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'shoulda', '~> 4.0'
   gem 'shoulda-context', '~> 2.0'
