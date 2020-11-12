@@ -4,7 +4,7 @@ RSpec.describe Article, type: :model do
   describe 'associations' do
     it { should belong_to(:author) }
     it { should belong_to(:category) }
-    # it { should have_many(:votes) }
+    it { should have_many(:votes) }
   end
 
   describe 'Title validations' do
