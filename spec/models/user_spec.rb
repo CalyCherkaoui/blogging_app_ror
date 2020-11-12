@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
     #   name: 'test'
     # )
 
-    @user = FactoryBot.create( :user, name: 'first')
+    @user = FactoryBot.create(:user, name: 'first')
   end
 
   it 'is valid with a name, an email and a password & confirmation' do
@@ -29,14 +29,12 @@ RSpec.describe User, type: :model do
   end
 
   context 'likes? Instance method' do
-
     before :each do
       @voter = FactoryBot.create(:user, name: 'voter')
       @not_voter = FactoryBot.create(:user, name: 'notvoter')
       @voted_article = FactoryBot.create(:article)
-      @vote =  FactoryBot.create(:vote, article_id: @voted_article.id, user_id: @voter.id)
+      @vote = FactoryBot.create(:vote, article_id: @voted_article.id, user_id: @voter.id)
     end
-    
 
     it 'returns false when the user is not the voter of the article passed in argument' do
       expect(@not_voter.likes?(@voted_article)).to be_falsey
@@ -46,5 +44,4 @@ RSpec.describe User, type: :model do
       expect(@voter.likes?(@voted_article)).to be_truthy
     end
   end
- 
 end

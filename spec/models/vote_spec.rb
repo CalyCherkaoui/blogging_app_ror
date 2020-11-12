@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Vote, type: :model do
-
   let(:vote) { FactoryBot.create :vote }
 
   it 'is valid with an article and a user' do

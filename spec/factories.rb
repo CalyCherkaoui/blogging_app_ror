@@ -1,14 +1,12 @@
-# rubocop:disable Lint/UselessAssignment;
 # rubocop:disable Style/MixinUsage
 
 include ActionDispatch::TestProcess
 
 FactoryBot.define do
-
   factory :user do
     password { 'password123' }
-    password_confirmation { 'password123'}
-    name { 'factoryboy'}
+    password_confirmation { 'password123' }
+    name { 'factoryboy' }
     # sequence(:name, 5) { |n| "person#{n}" }
     email { "#{name}@foobar.com".downcase }
   end
@@ -20,8 +18,8 @@ FactoryBot.define do
 
   factory :article do
     association :author, factory: :user, name: 'author1'
-    title { 'ABCDEFG'}
-    text { 'IJKLMNOPQRSTUVWXYZ'}
+    title { 'ABCDEFG' }
+    text { 'IJKLMNOPQRSTUVWXYZ' }
     association :category, factory: :category
     image { fixture_file_upload(Rails.root.join('spec', 'doc', 'test.jpg'), 'image/jpg') }
   end
@@ -30,8 +28,6 @@ FactoryBot.define do
     user_id { create(:user).id }
     article_id { create(:article).id }
   end
-
 end
 
-# rubocop:enable Lint/UselessAssignment;
 # rubocop:enable Style/MixinUsage;
