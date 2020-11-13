@@ -216,22 +216,22 @@ $ rpsec --format documentation
 ## Automated Tests:
 
 ### Models
-<img width="400" src="./app/assets/images/models1.png">
+<img width="800" src="./app/assets/images/models1.png">
 <br>
-<img width="400" src="./app/assets/images/models2.png">
+<img width="800" src="./app/assets/images/models2.png">
 <br>
 
 ### Integrations
-<img width="400" src="./app/assets/images/requests.png">
+<img width="800" src="./app/assets/images/requests.png">
 <br>
 
 ### Features
-<img width="400" src="./app/assets/images/feature.png">
+<img width="800" src="./app/assets/images/feature.png">
 <br>
 
 ### Helpers
 
-<img width="400" src="./app/assets/images/helpers.png">
+<img width="800" src="./app/assets/images/helpers.png">
 <br>
 
 ## Deployment:
