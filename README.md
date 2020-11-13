@@ -184,6 +184,28 @@ Iportant Gems and dependencies used in this web application:
 
 <br><br>
 
+## Getting started (Development)
+
+To get a local copy of the repository please run the following commands on your terminal:
+
+```
+$ git clone git@github.com:CalyCherkaoui/lifestyle_capstone.git
+$ cd lifestyle_capstone
+$ git checkout development
+$ bundle install --without production
+$ yarn install --check-files
+$ rails db:create
+$ rails db:migrate
+$ rails db:seed
+```
+
+Start server with:
+```
+$ sudo service postgresql restart
+$ rails server
+```
+In your browser's adress field, type : http://localhost:3000
+
 
 ## Author
 
