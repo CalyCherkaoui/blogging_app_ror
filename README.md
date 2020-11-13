@@ -9,12 +9,27 @@ This project project was built following the specifications , and user cases giv
 
 [Read the projects specifications](https://www.notion.so/Lifestyle-articles-b82a5f10122b4cec924cd5d4a6cf7561)
 
+## Built with:
+
+  <a href="https://www.ruby-lang.org/en/documentation/"><img width="10%" src="https://www.vectorlogo.zone/logos/ruby/ruby-ar21.svg" alt="Ruby"></a>
+  <a href="https://guides.rubyonrails.org/"><img width="50px" src="https://guides.rubyonrails.org/images/favicon.ico" alt="Rails"></a>
+  <a href="https://github.com/"><img width="5%" src="https://i.giphy.com/media/KzJkzjggfGN5Py6nkT/200.webp" alt="GitHub"></a>
+  <a href="#"><img width="60px" src="https://cdn.svgporn.com/logos/sass.svg"></a>
+  <a href="#"><img width="10%" src="https://media.giphy.com/media/kH6CqYiquZawmU1HI6/giphy.gif"></a>
+  <a href="#"><img width="10%" src="https://www.vectorlogo.zone/logos/heroku/heroku-ar21.svg"></a>
+  <a href="#"><img width="5%" src="https://i.giphy.com/media/IdyAQJVN2kVPNUrojM/200.webp"></a>
+  <a href="#"><img width="30px" src="https://cdn.svgporn.com/logos/html-5.svg"></a>
+  <a href="#"><img width="30px" src="https://cdn.svgporn.com/logos/css-3.svg"></a>
+  <a href="#"><img width="50px" src="https://img.icons8.com/bubbles/2x/console.png"></a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img width="5%" src="https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif" alt="Javascript"></a>
+  <a href="#"><img width="90px" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"></a>
+
 
 ## Table of content:
 
 - [About the project](#about-the-project)
-- [Presentation/Demo](#presentation)
 - [Built with](#built-with)
+- [Presentation/Demo](#presentation)
 - [Dependencies](#dependencies)
 - [Linting tools:](#Linting-tools)
 - [Data Models](#data-models)
@@ -35,26 +50,13 @@ This project project was built following the specifications , and user cases giv
 - Main views screenshots:
 <br>
 
-<img width="400" src="./app/assets/images/home.png"><span> </span><img width="400" src="./app/assets/images/category.png">
+<img width="400" src="./app/assets/images/home.png"><span> </span><img width="400" src="./app/assets/images/article.png">
+<br>
+<img width="400" src="./app/assets/images/categories.png"><span> </span><img width="400" src="./app/assets/images/signup.png">
 <br>
 <img width="400" src="./app/assets/images/user_profile.png"><span> </span><img width="400" src="./app/assets/images/add_article.png">
 <br>
-<img width="400" src="./app/assets/images/signup.png"><span> </span><img width="400" src="./app/assets/images/article.png">
-
-## Built with:
-
-  <a href="https://www.ruby-lang.org/en/documentation/"><img width="10%" src="https://www.vectorlogo.zone/logos/ruby/ruby-ar21.svg" alt="Ruby"></a>
-  <a href="https://guides.rubyonrails.org/"><img width="50px" src="https://guides.rubyonrails.org/images/favicon.ico" alt="Rails"></a>
-  <a href="https://github.com/"><img width="5%" src="https://i.giphy.com/media/KzJkzjggfGN5Py6nkT/200.webp" alt="GitHub"></a>
-  <a href="#"><img width="60px" src="https://cdn.svgporn.com/logos/sass.svg"></a>
-  <a href="#"><img width="10%" src="https://media.giphy.com/media/kH6CqYiquZawmU1HI6/giphy.gif"></a>
-  <a href="#"><img width="10%" src="https://www.vectorlogo.zone/logos/heroku/heroku-ar21.svg"></a>
-  <a href="#"><img width="5%" src="https://i.giphy.com/media/IdyAQJVN2kVPNUrojM/200.webp"></a>
-  <a href="#"><img width="30px" src="https://cdn.svgporn.com/logos/html-5.svg"></a>
-  <a href="#"><img width="30px" src="https://cdn.svgporn.com/logos/css-3.svg"></a>
-  <a href="#"><img width="50px" src="https://img.icons8.com/bubbles/2x/console.png"></a>
-  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img width="5%" src="https://media.giphy.com/media/ln7z2eWriiQAllfVcn/giphy.gif" alt="Javascript"></a>
-  <a href="#"><img width="50px" src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg"></a>
+<img width="400" src="./app/assets/images/dashboard.png"><span> </span><img width="400" src="./app/assets/images/edit_category.png">
 
 ## Dependencies:
 
@@ -214,15 +216,22 @@ $ rpsec --format documentation
 ## Automated Tests:
 
 ### Models
-<img height="300" src="./app/assets/images/models_test.png">
+<img width="400" src="./app/assets/images/models1.png">
+<br>
+<img width="400" src="./app/assets/images/models2.png">
 <br>
 
 ### Integrations
-<img height="300" src="./app/assets/images/Integration_test.png">
+<img width="400" src="./app/assets/images/requests.png">
 <br>
 
 ### Features
-<img height="300" src="./app/assets/images/features_test.png">
+<img width="400" src="./app/assets/images/feature.png">
+<br>
+
+### Helpers
+
+<img width="400" src="./app/assets/images/helpers.png">
 <br>
 
 ## Deployment:
