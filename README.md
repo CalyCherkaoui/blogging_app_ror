@@ -225,6 +225,10 @@ $ rpsec --format documentation
 <img height="300" src="./app/assets/images/features_test.png">
 <br>
 
+## Deployment:
+
+This web-application was deployed with Heroku
+
 ## Author
 
 👤 **Houda Cherkaoui**
