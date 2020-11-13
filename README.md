@@ -189,8 +189,8 @@ Iportant Gems and dependencies used in this web application:
 To get a local copy of the repository please run the following commands on your terminal:
 
 ```
-$ git clone git@github.com:CalyCherkaoui/lifestyle_capstone.git
-$ cd lifestyle_capstone
+$ git clone git@github.com:CalyCherkaoui/blogging_app_ror.git
+$ cd blogging_app_ror
 $ git checkout development
 $ bundle install --without production
 $ yarn install --check-files
