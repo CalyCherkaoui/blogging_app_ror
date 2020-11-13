@@ -77,7 +77,7 @@ Iportant Gems and dependencies used in this web application:
   </tr>
   <tr>
     <td>Devise</td>
-    <td>For authentication</td>
+    <td>For user authentication</td>
     <td>⭐️</td>
     <td>⭐️</td>
     <td>⭐️</td>
@@ -142,15 +142,39 @@ Iportant Gems and dependencies used in this web application:
     <td>⭐️</td>
   </tr>
   <tr>
-    <td>will_paginate</td>
+  <td>will_paginate</td>
     <td>Views pagination</td>
     <td>⭐️</td>
     <td></td>
     <td>⭐️</td>
   </tr>
+  <td>Bullet</td>
+    <td>N+1 querries debugging</td>
+    <td>⭐️</td>
+    <td></td>
+    <td></td>
+  </tr>
 </table>
 
+## Linting tools:
 
+<table>
+  <tr>
+    <th>Linter</th>
+    <th>Use</th>
+    <th>Files</th>
+  </tr>
+  <tr>
+    <td>Rubocop</td>
+    <td>Linting Ruby errors</td>
+    <td>.rb</td>
+  </tr>
+    <tr>
+    <td>Stylelint</td>
+    <td>Linting styling errors</td>
+    <td>.css .scss</td>
+  </tr>
+</table>
 
 ## Data Models
 
