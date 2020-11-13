@@ -206,6 +206,24 @@ $ rails server
 ```
 In your browser's adress field, type : http://localhost:3000
 
+## Run tests
+```
+$ rpsec --format documentation
+```
+
+## Automated Tests:
+
+### Models
+<img height="300" src="./app/assets/images/models_test.png">
+<br>
+
+### Integrations
+<img height="300" src="./app/assets/images/Integration_test.png">
+<br>
+
+### Features
+<img height="300" src="./app/assets/images/features_test.png">
+<br>
 
 ## Author
 
