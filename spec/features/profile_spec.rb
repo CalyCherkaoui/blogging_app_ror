@@ -1,6 +1,7 @@
 require 'rails_helper'
+# rubocop:disable Metrics/BlockLength
 
-RSpec.feature "Profiles", type: :feature do
+RSpec.feature 'Profiles', type: :feature do
   before :each do
     @profile = FactoryBot.create(:user, name: 'profile_user')
     @visitor = FactoryBot.create(:user, name: 'visitor_user')
@@ -11,7 +12,7 @@ RSpec.feature "Profiles", type: :feature do
 
   scenario 'Anonymous visotor can read an author profile, cannot see Author liked articles' do
     visit "/articles/#{@article.id}"
-    click_link("#{@article.author.name}")
+    click_link(@article.author.name.to_s)
     expect(current_path).to have_content("/users/#{@article.author.id}")
     expect(page).to have_text('Articles I Wrote')
     expect(page).not_to have_text('Articles I liked')
@@ -28,7 +29,7 @@ RSpec.feature "Profiles", type: :feature do
     expect(page).to have_text('Signed in successfully')
 
     visit "/articles/#{@article.id}"
-    click_link("#{@article.author.name}")
+    click_link(@article.author.name.to_s)
     expect(current_path).to have_content("/users/#{@article.author.id}")
     expect(page).to have_text('Articles I Wrote')
     expect(page).not_to have_text('Articles I liked')
@@ -50,3 +51,4 @@ RSpec.feature "Profiles", type: :feature do
     expect(page).to have_text('Articles I liked')
   end
 end
+# rubocop:enable Metrics/BlockLength
