@@ -1,0 +1,19 @@
+<div class="article">
+    <% if category.latest_article.present? %>
+        <%= image_tag category.latest_article.image %>
+        <%= link_to category_path(category) , class: 'category' do %>
+            <%= category.name %>
+        <% end %>
+        <%= link_to article_path(category.latest_article), class: 'title' do %>
+            <p><%= category.latest_article.title %></p>
+        <% end %>
+    <% else %>
+        <%= link_to category_path(category) , class: 'category' do %>
+            <%= category.name %>
+        <% end %>
+        <%= image_tag(asset_path("default.jpg"))%>
+        <a href='#' class='title'>
+            <p>More articles soon...</p>
+        </a>
+    <% end %>
+</div>

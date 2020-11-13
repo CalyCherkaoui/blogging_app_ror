@@ -19,11 +19,17 @@
         </div>
 
     <% else %>
+
       <% @articles.each_with_index do |article, index| %>
 
         <%= render 'shared/collection', article: article, index: index, category: @category %>
 
       <% end %>
+
     <% end %>
 
+</section>
+
+<section class="pagination_displayer">
+  <%= will_paginate @articles %>
 </section>

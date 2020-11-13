@@ -1,0 +1,47 @@
+<div class="dashbord_displayer_article_card">
+    <div class="card_image">
+        <%= image_tag(article.hero_image) %>
+    </div>
+    <div class="card_tools">
+          <%= link_to 'Edit', edit_article_path(article), class: 'tool_box_link' %>
+          <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'tool_box_link' %>
+    </div>
+    <div class="card_info">
+        <p class="card_info_title category_last_article_hero_title">
+            <%= link_to article_path(article) do %>
+              <%= article.title %>
+            <% end %>
+        </p>
+        <p class="card_info_text category_last_article_hero_content">
+          <%= truncate(article.text, :omission => "...", :length => 250) %>
+        </p>
+
+        <table class= "card_info_table">
+          <tr>
+            <td class= "card_table_title">Votes:</td>
+            <td>
+                <span><%= article.votes_count %></span>
+                <svg width="0.9em" height="0.9em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                </svg>
+            </td>
+          </tr>
+          <tr>
+            <td class= "card_table_title">Author:</td>
+            <td>
+                  <%= link_to user_path(article.author), class: 'readmore' do %>
+                    <%= article.author.name%>
+                  <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class= "card_table_title">Category:</td>
+            <td>
+                  <%= link_to category_path(article.category), class: 'readmore' do %>
+                    <%= article.category.name%>
+                  <% end %>
+            </td>
+          </tr>
+        </table>
+    </div>
+</div>

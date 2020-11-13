@@ -1,0 +1,35 @@
+@import 'settings.scss';
+
+.pagination_displayer {
+  width: 100%;
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  font-family: $font_logo_main;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: $color_logo_second;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      color: $light-blue;
+    }
+  }
+
+  .current {
+    color: $light-blue;
+  }
+}
+
+.pagination > * {
+  margin-left: 0.6rem;
+  margin-right: 0.6rem;
+}

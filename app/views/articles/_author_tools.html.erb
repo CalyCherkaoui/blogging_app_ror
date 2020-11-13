@@ -1,0 +1,9 @@
+<div class="article_show_author_tool">
+  <p>Hello, <%= current_user.name %>!</p>
+  <p>You did a geat work with this Article.</p>
+  <p>Thank you for your contribution to the Photosythèse blog.</p>
+  <div class="toolbox">
+    <%= link_to 'Edit this article', edit_article_path(article) %>
+    <%= link_to 'Add new article', new_article_path %>
+  </div>
+</div>
