@@ -19,8 +19,7 @@ RSpec.describe "Dashboards", type: :request do
 
     it "GET/ Dashboard#index: it redirects to root with flash message " do
       get dashboard_index_path
-      expect( response ).to redirect_to( root_path )
-      expect(page).to have_text('Access denied! Please login')
+      expect(response).to redirect_to( root_path )
     end
   end
 
