@@ -1,12 +1,13 @@
 require 'rails_helper'
+# rubocop:disable Metrics/BlockLength
 
-RSpec.feature "AddingArticleProcesses", type: :feature do
+RSpec.feature 'AddingArticleProcesses', type: :feature do
   before :each do
     @user = FactoryBot.create(:user, name: 'author_user')
     @category = FactoryBot.create(:category, name: 'add_article')
     @author = FactoryBot.create(:user, name: 'author_author')
-    @article = FactoryBot.create(:article, 
-                                 author_id: @author.id, 
+    @article = FactoryBot.create(:article,
+                                 author_id: @author.id,
                                  category_id: @category.id)
     @moderator = FactoryBot.create(:user,
                                    name: 'moderator_edit_art',
@@ -18,8 +19,8 @@ RSpec.feature "AddingArticleProcesses", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @user.email
-    fill_in "user_password", with: @user.password
+    fill_in 'user_email', with: @user.email
+    fill_in 'user_password', with: @user.password
     click_button('Log in')
 
     expect(current_path).to have_content('/')
@@ -51,8 +52,8 @@ RSpec.feature "AddingArticleProcesses", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @user.email
-    fill_in "user_password", with: @user.password
+    fill_in 'user_email', with: @user.email
+    fill_in 'user_password', with: @user.password
     click_button('Log in')
 
     expect(current_path).to have_content('/')
@@ -67,8 +68,8 @@ RSpec.feature "AddingArticleProcesses", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @moderator.email
-    fill_in "user_password", with: @moderator.password
+    fill_in 'user_email', with: @moderator.email
+    fill_in 'user_password', with: @moderator.password
     click_button('Log in')
 
     expect(current_path).to have_content('/')
@@ -83,3 +84,4 @@ RSpec.feature "AddingArticleProcesses", type: :feature do
     expect(page).to have_text('Edited title by moderator')
   end
 end
+# rubocop:enable Metrics/BlockLength

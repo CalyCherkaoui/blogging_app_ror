@@ -1,6 +1,7 @@
 require 'rails_helper'
+# rubocop:disable Metrics/BlockLength
 
-RSpec.feature "AddingAndEditingCategories", type: :feature do
+RSpec.feature 'AddingAndEditingCategories', type: :feature do
   before :each do
     @user = FactoryBot.create(:user, name: 'author_user')
     @category = FactoryBot.create(:category, name: 'add_category')
@@ -16,8 +17,8 @@ RSpec.feature "AddingAndEditingCategories", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @user.email
-    fill_in "user_password", with: @user.password
+    fill_in 'user_email', with: @user.email
+    fill_in 'user_password', with: @user.password
     click_button('Log in')
     expect(current_path).to have_content('/')
     expect(page).to have_text('Signed in successfully')
@@ -31,8 +32,8 @@ RSpec.feature "AddingAndEditingCategories", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @user.email
-    fill_in "user_password", with: @user.password
+    fill_in 'user_email', with: @user.email
+    fill_in 'user_password', with: @user.password
     click_button('Log in')
 
     expect(current_path).to have_content('/')
@@ -47,8 +48,8 @@ RSpec.feature "AddingAndEditingCategories", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @moderator.email
-    fill_in "user_password", with: @moderator.password
+    fill_in 'user_email', with: @moderator.email
+    fill_in 'user_password', with: @moderator.password
     click_button('Log in')
 
     expect(current_path).to have_content('/')
@@ -68,8 +69,8 @@ RSpec.feature "AddingAndEditingCategories", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @moderator.email
-    fill_in "user_password", with: @moderator.password
+    fill_in 'user_email', with: @moderator.email
+    fill_in 'user_password', with: @moderator.password
     click_button('Log in')
 
     expect(current_path).to have_content('/')
@@ -80,10 +81,9 @@ RSpec.feature "AddingAndEditingCategories", type: :feature do
     fill_in('category[priority]', with: '11')
     click_button('Update Category')
 
-
     expect(current_path).to have_content('/categories/new')
     expect(page).to have_text('Category was successfully updated.')
     expect(page).to have_text('Edited_by_moderator')
   end
-
 end
+# rubocop:enable Metrics/BlockLength

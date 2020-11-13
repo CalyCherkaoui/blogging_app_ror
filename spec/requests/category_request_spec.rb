@@ -1,12 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Categories", type: :request do
-
+RSpec.describe 'Categories', type: :request do
   describe 'Visited by Anonymous user' do
-
-    it "should be redirected to signin when wants to add new category" do
+    it 'should be redirected to signin when wants to add new category' do
       get new_category_path
-      expect( response ).to redirect_to( new_user_session_path )
+      expect(response).to redirect_to(new_user_session_path)
     end
 
     it 'GET /category show' do
@@ -29,7 +27,5 @@ RSpec.describe "Categories", type: :request do
     #   get new_user_session_path
     #   expect(response).to have_http_status(:success)
     # end
-
   end
-
 end

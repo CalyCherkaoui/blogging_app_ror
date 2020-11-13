@@ -1,6 +1,7 @@
 require 'rails_helper'
+# rubocop:disable Metrics/BlockLength
 
-RSpec.feature "VotingProcesses", type: :feature do
+RSpec.feature 'VotingProcesses', type: :feature do
   before :each do
     @voter = FactoryBot.create(:user, name: 'voter_user')
     @category = FactoryBot.create(:category, name: 'category_voting')
@@ -19,8 +20,8 @@ RSpec.feature "VotingProcesses", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @voter.email
-    fill_in "user_password", with: @voter.password
+    fill_in 'user_email', with: @voter.email
+    fill_in 'user_password', with: @voter.password
     click_button('Log in')
     expect(current_path).to have_content('/')
     expect(page).to have_text('Signed in successfully')
@@ -30,15 +31,14 @@ RSpec.feature "VotingProcesses", type: :feature do
 
     expect(current_path).to have_content("/articles/#{@article.id}")
     expect(page).to have_text('Dislike')
-
   end
 
   scenario 'User log-in can unvote an article he/she already liked it from article#show view' do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @voter.email
-    fill_in "user_password", with: @voter.password
+    fill_in 'user_email', with: @voter.email
+    fill_in 'user_password', with: @voter.password
     click_button('Log in')
     expect(current_path).to have_content('/')
     expect(page).to have_text('Signed in successfully')
@@ -65,8 +65,8 @@ RSpec.feature "VotingProcesses", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @voter.email
-    fill_in "user_password", with: @voter.password
+    fill_in 'user_email', with: @voter.email
+    fill_in 'user_password', with: @voter.password
     click_button('Log in')
     expect(current_path).to have_content('/')
     expect(page).to have_text('Signed in successfully')
@@ -82,8 +82,8 @@ RSpec.feature "VotingProcesses", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @voter.email
-    fill_in "user_password", with: @voter.password
+    fill_in 'user_email', with: @voter.email
+    fill_in 'user_password', with: @voter.password
     click_button('Log in')
     expect(current_path).to have_content('/')
     expect(page).to have_text('Signed in successfully')
@@ -103,8 +103,8 @@ RSpec.feature "VotingProcesses", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @voter.email
-    fill_in "user_password", with: @voter.password
+    fill_in 'user_email', with: @voter.email
+    fill_in 'user_password', with: @voter.password
     click_button('Log in')
     expect(current_path).to have_content('/')
     expect(page).to have_text('Signed in successfully')
@@ -129,8 +129,8 @@ RSpec.feature "VotingProcesses", type: :feature do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @voter.email
-    fill_in "user_password", with: @voter.password
+    fill_in 'user_email', with: @voter.email
+    fill_in 'user_password', with: @voter.password
     click_button('Log in')
     expect(current_path).to have_content('/')
     expect(page).to have_text('Signed in successfully')
@@ -145,15 +145,14 @@ RSpec.feature "VotingProcesses", type: :feature do
     expect(current_path).to have_content("/users/#{@voter.id}")
     expect(page).to have_text(@article.title)
     expect(page).to have_text('Dislike')
-
   end
 
-  scenario 'When a Loggedin User unvote an article she/he expects to not find it profile view in Article_I_Liked section' do
+  scenario 'When a Loggedin User unvote an article, it expected to not be found in profile' do
     visit '/'
     click_link('Log-in')
     expect(current_path).to have_content('/sign_in')
-    fill_in "user_email", with: @voter.email
-    fill_in "user_password", with: @voter.password
+    fill_in 'user_email', with: @voter.email
+    fill_in 'user_password', with: @voter.password
     click_button('Log in')
     expect(current_path).to have_content('/')
     expect(page).to have_text('Signed in successfully')
@@ -178,3 +177,4 @@ RSpec.feature "VotingProcesses", type: :feature do
     expect(page).not_to have_text(@article.title)
   end
 end
+# rubocop:enable Metrics/BlockLength
