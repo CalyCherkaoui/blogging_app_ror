@@ -2,63 +2,55 @@
 <section class="home_articles">
   <div class="hero_article">
     <% if @hero_article.present? %>
-      <%= image_tag @hero_article.image%>
-      <%= link_to(@hero_article) do %>
-        <div class="text">
-          <p class="title"><%= @hero_article.title %></p>
-          <p class="content">
-              <%= truncate(@hero_article.text, :omission => "...", :length => 300) %>
-          </p>
-        </div>
+          <%= image_tag @hero_article.image%>
+          <%= link_to(@hero_article) do %>
+            <div class="text">
+              <p class="title"><%= @hero_article.title %></p>
+              <p class="content">
+                  <%= truncate(@hero_article.text, :omission => "...", :length => 300) %>
+              </p>
+            </div>
       <% end %>
     <% else %>
-      <%= image_tag(asset_path("default.jpg"))%>
-      <a href='#'>
-        <div class="text">
-          <p class="title">More article soon</p>
-          <p class="content">More articles soon...</p>
-        </div>
-      </a>
+            <%= image_tag(asset_path("default.jpg"))%>
+            <a href='#'>
+              <div class="text">
+                <p class="title">More article soon</p>
+                <p class="content">More articles soon...</p>
+              </div>
+            </a>
     <% end %>
   </div>
   <div class="latest_article">
     <% if @article_latest.present? %>
-      <%= image_tag @article_latest.image %>
-      <%= link_to @article_latest, class: 'text' do %>
-          <p>Read the latest article </p>
-          <p>by <%=@article_latest.author.name%> :</p>
-          <p><%= @article_latest.title %></p>
-      <% end %>
+          <%= image_tag @article_latest.image %>
+          <%= link_to @article_latest, class: 'text' do %>
+              <p>Read the latest article </p>
+              <p>by <%=@article_latest.author.name%> :</p>
+              <p><%= @article_latest.title %></p>
+          <% end %>
     <% else %>
-      <%= image_tag(asset_path("default.jpg")) %>
-      <a href='#'>
-        <div class="text">
-          <p>More articles soon...</p>
-        </div>
-      </a>
+          <%= image_tag(asset_path("default.jpg")) %>
+          <a href='#'>
+            <div class="text">
+              <p>More articles soon...</p>
+            </div>
+          </a>
     <%end%>
   </div>
   <div class="articles_wrapper">
-    <% @important_categories.each do |category| %>
-      <div class="article">
-        <% if category.latest_article.present? %>
-            <%= image_tag category.latest_article.image %>
-            <%= link_to category_path(category) , class: 'category' do %>
-                <%= category.name %>
-            <% end %>
-            <%= link_to article_path(category.latest_article), class: 'title' do %>
-                <p><%= category.latest_article.title %></p>
-            <% end %>
-        <% else %>
-            <%= link_to category_path(category) , class: 'category' do %>
-                <%= category.name %>
-            <% end %>
-            <%= image_tag(asset_path("default.jpg"))%>
-            <a href='#' class='title'>
-                <p>More articles soon...</p>
-            </a>
-        <% end %>
-      </div>
-    <% end %>
+      <% if @important_categories.empty? %>
+          <% 4.times do %>
+              <%= link_to categories_path , class: 'category' do %>
+                  Category
+              <% end %>
+              <%= image_tag(asset_path("default.jpg"))%>
+              <a href='#' class='title'>
+                  <p>More articles soon...</p>
+              </a>
+          <% end %>
+      <% else %>
+          <%= render partial: 'home/category_caption', collection: @important_categories, as: :category, cached: true %>
+      <% end %>
   </div>
 </section>

@@ -56,28 +56,19 @@
 
     </div>
 
-
-
     <div class="dashbord_displayer_collection">
+        <div class="dashbord_displayer_collection_header">
+              <p>Articles to review:</p>
+        </div>
 
-      <div class="dashbord_displayer_collection_header">
-        <p>Articles to review:</p>
-      </div>
-
-
-      <div class="dashbord_displayer_collection_articles">
-
-        <% @articles_released.each do |article| %>
-
-            <%= render 'dashboard/card', article: article%>
-
-        <% end %>
-
-
-      </div>
-
+        <div class="dashbord_displayer_collection_articles">
+              <% if @articles_released.empty? %>
+                    <p class="readmore">No articles added yet!</p>
+              <% else %>
+                    <%= render partial: 'dashboard/card', collection: @articles_released, as: :article, cached: true %>
+              <% end %>
+        </div>
     </div>
-
 
   </div>
 </section>

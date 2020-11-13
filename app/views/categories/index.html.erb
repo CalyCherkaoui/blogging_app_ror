@@ -4,46 +4,7 @@
 
   <% @categories.each_with_index do |category, index| %>
 
-    <div class="category_caption">
-
-      <% if category.latest_article.present? %>
-
-        <div class="category_img img<%= index %>">
-      
-          <%= image_tag(category.latest_article.image) %>
-
-        </div>
-
-        <div class="category_content content<%= index %>">
-          <p class="category_name">
-            <%= link_to category_path(category) do %>
-                <%= category.name %>
-            <%end%>
-          </p>
-          <p class="category_hero_title"><%= category.latest_article.title %></p>
-          <p class="category_hero_content">
-              <%= truncate(category.latest_article.text, :omission => "...", :length => 300) %>
-          </p>
-
-            <%= link_to 'Read more..', article_path(category.latest_article), class: 'category_hero_readmore' %>
-
-        </div>
-
-      <% else %>
-        <div class="category_img img<%= index %>">
-            <%= image_tag(asset_path("default.jpg")) %>
-        </div>
-        <div class="category_content content<%= index %>">
-          <p class="category_name">
-            <%= link_to category_path(category) do %>
-                <%= category.name %>
-            <%end%>
-          </p>
-          <p class="category_hero_title">More articles soon in this category ...</p>
-        </div>
-      <% end %>
-
-    </div>
+      <%= render 'categories/caption_category', category: category, index: index %>
 
   <% end %>
 

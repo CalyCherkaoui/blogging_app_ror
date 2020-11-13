@@ -24,4 +24,22 @@ module DashboardHelper
     end
   end
 
+#   def article_released_dashboard(articles)
+
+#     if articles.empty?
+#       'No articles yet'
+#     else
+#       articles.each do |article|
+#         render 'dashboard/card', article: article
+#       end
+#     end
+
+#   end
+
+#   <% @articles_released.each do |article| %>
+
+#     <%= render 'dashboard/card', article: article%>
+
+# <% end %>
+
 end
