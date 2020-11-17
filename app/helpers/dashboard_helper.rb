@@ -3,7 +3,7 @@ module DashboardHelper
     if article.present?
       link_to("#{article.title}...", article_path(article))
     else
-      'No article added yet!'
+      link_to('No article added yet!', root_path)
     end
   end
 
@@ -11,7 +11,7 @@ module DashboardHelper
     if article.present?
       link_to("#{article.title}...", article_path(article))
     else
-      'No article voted yet!'
+      link_to('No article voted yet!', root_path)
     end
   end
 
@@ -19,25 +19,7 @@ module DashboardHelper
     if category.present?
       link_to(category.name.to_s, category_path(category))
     else
-      'No category added yet!'
+      link_to('No category added yet!', root_path)
     end
   end
-
-  #   def article_released_dashboard(articles)
-
-  #     if articles.empty?
-  #       'No articles yet'
-  #     else
-  #       articles.each do |article|
-  #         render 'dashboard/card', article: article
-  #       end
-  #     end
-
-  #   end
-
-  #   <% @articles_released.each do |article| %>
-
-  #     <%= render 'dashboard/card', article: article%>
-
-  # <% end %>
 end
