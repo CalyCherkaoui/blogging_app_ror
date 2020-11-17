@@ -3,8 +3,10 @@ class AddSuperadmin < ActiveRecord::Migration[6.0]
     User.create! do |u|
       u.email     = 'admin@test.com'
       u.password  = 'foobar'
+      u.password_confirmation = 'foobar'
       u.name      = 'admin'
       u.superadmin_role = true
-  end
+      u.user_role = false
+    end
   end
 end
