@@ -10,12 +10,12 @@
                   <%= truncate(@hero_article.text, :omission => "...", :length => 300) %>
               </p>
             </div>
-      <% end %>
+         <% end %>
     <% else %>
             <%= image_tag(asset_path("default.jpg"))%>
             <a href='#'>
               <div class="text">
-                <p class="title">More article soon</p>
+                <p class="title">Photosynthese blog</p>
                 <p class="content">More articles soon...</p>
               </div>
             </a>
@@ -31,23 +31,24 @@
           <% end %>
     <% else %>
           <%= image_tag(asset_path("default.jpg")) %>
-          <a href='#'>
-            <div class="text">
+          <a href='#' class="text">
               <p>More articles soon...</p>
-            </div>
           </a>
     <%end%>
   </div>
   <div class="articles_wrapper">
       <% if @important_categories.empty? %>
           <% 4.times do %>
+              <div class="article">
+              <%= image_tag(asset_path("default.jpg"))%>
               <%= link_to categories_path , class: 'category' do %>
                   Category
               <% end %>
-              <%= image_tag(asset_path("default.jpg"))%>
+              
               <a href='#' class='title'>
                   <p>More articles soon...</p>
               </a>
+              </div>
           <% end %>
       <% else %>
           <%= render partial: 'home/category_caption', collection: @important_categories, as: :category, cached: true %>
