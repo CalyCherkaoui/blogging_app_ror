@@ -27,14 +27,14 @@ class Article < ApplicationRecord
   end
 
   def cover_image
-    image.variant(resize: '200x200')
+    image.variant(resize_to_limit: [200, nil])
   end
 
   def hero_image
-    image.variant(resize: '400x400')
+    image.variant(resize_to_limit: [600, nil])
   end
 
   def display_image
-    image.variant(resize: '1000x1000')
+    image.variant(resize_to_limit: [1000, nil])
   end
 end
