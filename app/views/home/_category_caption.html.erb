@@ -8,10 +8,10 @@
             <p><%= category.latest_article.title %></p>
         <% end %>
     <% else %>
+        <%= image_tag(asset_path("default.jpg"))%>
         <%= link_to category_path(category) , class: 'category' do %>
             <%= category.name %>
         <% end %>
-        <%= image_tag(asset_path("default.jpg"))%>
         <a href='#' class='title'>
             <p>More articles soon...</p>
         </a>
