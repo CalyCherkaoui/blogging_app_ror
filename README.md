@@ -258,7 +258,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Design based on the work of [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) published in [Behance.net](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version)
-- Hat tip to [stackoverflow](https://stackoverflow.com) comunity.
+- Hat tip to [stackoverflow](https://stackoverflow.com) community.
 - Hat tip to [Microverse](https://www.microverse.org/) TSE for Code Review
 - Hat tip to anyone whose code was used
 
