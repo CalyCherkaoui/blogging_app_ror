@@ -2,10 +2,10 @@
 
 ## About the project:
 
-In this project, I built a comunity Blog magazine specialized in Plants, Ecological farming, and Home gardening.
-This is the Capstone project for the end Ruby On Rails Module in [Microverse](https://www.microverse.org/) currriculum
+In this project, I built a community Blog magazine specialized in Plants, Ecological farming, and Home gardening.
+This is the Capstone project for the end of Ruby On Rails Module in [Microverse](https://www.microverse.org/) currriculum.
 
-This project project was built following the specifications , and user cases given by Microverse
+This project was built following the specifications , and user cases given by Microverse.
 
 [Read the projects specifications](https://www.notion.so/Lifestyle-articles-b82a5f10122b4cec924cd5d4a6cf7561)
 
