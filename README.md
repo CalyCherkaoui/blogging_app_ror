@@ -2,10 +2,10 @@
 
 ## About the project:
 
-In this project, I built a community Blog magazine specialized in Plants, Ecological farming, and Home gardening.
-This is the Capstone project for the end of Ruby On Rails Module in [Microverse](https://www.microverse.org/) currriculum.
+In this project, I built a community blog magazine specialized in plants, ecological farming, and home gardening.
+This is the Capstone project for the end of Ruby On Rails Module in [Microverse](https://www.microverse.org/) curriculum.
 
-This project was built following the specifications , and user cases given by Microverse.
+This project was built following the specifications, and user cases given by Microverse.
 
 [Read the projects specifications](https://www.notion.so/Lifestyle-articles-b82a5f10122b4cec924cd5d4a6cf7561)
 
@@ -188,7 +188,7 @@ Iportant Gems and dependencies used in this web application:
 
 ## Getting started (Development)
 
-To get a local copy of the repository please run the following commands on your terminal:
+To get a local copy of the repository, please run the following commands on your terminal:
 
 ```
 $ git clone git@github.com:CalyCherkaoui/blogging_app_ror.git
