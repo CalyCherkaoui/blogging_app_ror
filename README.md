@@ -9,6 +9,18 @@ This project was built following the specifications, and user cases given by Mic
 
 [Read the projects specifications](https://www.notion.so/Lifestyle-articles-b82a5f10122b4cec924cd5d4a6cf7561)
 
+### Main features:
+- Secure authentication system with Devise.
+- Super-admin and moderator panels with Rails-admin.
+-	Articles creation and editing by the user.
+-	Like and dislike an article.
+-	It displays articles and categories collections ordered by priority and numbers of likes.
+-	It adapts the feature's display and access to the user's roles.
+-	It displays paginated collections.
+-	It avoids the N+1 Queries problem in loading.
+-	It uses AWS-S3 service to store images.
+-	Optimized code with Linters, DRY method, and the use of scopes in the models.
+
 ## Built with:
 
   <a href="https://www.ruby-lang.org/en/documentation/"><img width="10%" src="https://www.vectorlogo.zone/logos/ruby/ruby-ar21.svg" alt="Ruby"></a>
